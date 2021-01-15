@@ -58,5 +58,34 @@ public class Convertir {
 		}
 		System.out.println("Le résultat est --> " + resultat); 
 	}
+	public int OutilTailleTemperature(String outil,String sens,int val) throws Exception {
+		int result = 0;
+		if(outil.equals("Temperature")) {
+			if(val>=-100 & val<=500) {
+			if(sens.equals("GaucheDroite")) {
+				result =  (val * 9/5) + 32 ;
+			}
+			else {
+				result = (int)((val - 32) * 5/9);
+			}
+			}else {
+				throw new Exception("Tempature invalide");
+			}
+			
+		}else {
+			if(val>=1) {
+			if(sens.equals("GaucheDroite")) {
+				result =(int) Math.round(val*1.609344);
+			}
+			else {
+				result=(int)Math.round(val * 0.62137);
+			}
+			}else {
+				throw new Exception("Longeur invalide");
+			}
+		}
+		return result;
 
+		
+	}
 }
