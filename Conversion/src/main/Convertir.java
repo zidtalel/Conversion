@@ -66,7 +66,7 @@ public class Convertir {
 				result =  (val * 9/5) + 32 ;
 			}
 			else {
-				result = (int)((val - 32) * 5/9);
+				result = (int)((val - 32) * 5/9 );
 			}
 			}else {
 				throw new Exception("Tempature invalide");
