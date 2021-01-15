@@ -1,0 +1,62 @@
+package main;
+import java.util.Scanner;
+public class Convertir {
+
+	public static void main(String[] args) {
+		double resultat, tauxMK=1.60934;
+		int tool, sens;
+		double val;
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Choisir un outil : \nConvertisseur de température --> 1"
+				+ "\nConvertisseur de distance --> 2\n");
+		tool = scan.nextInt();
+		System.out.println("Choisir un sens : \nCelsius vers Fahrenheit --> 1"
+				+ "\nFahrenheit vers Celsius --> 2\n");
+		sens = scan.nextInt();
+		System.out.println("Saisir la valeur à convertir : \n");
+		val = scan.nextDouble();		
+		//Outil 1 : Convertisseur de température
+		if (tool == 1) {
+			//Sens 1 : Celsius vers Fahrenheit
+			if ((sens == 1) && (val<=500) && (val>=-100)) {
+				resultat = (1.8 * val) + 32;
+			} 
+			//Sens 2 : Fahrenheit vers Celsius
+			else if ((sens == 2) && (val<=500) && (val>=-100)) { 
+				resultat = (val - 32) / 1.8;
+			}
+			//Autres valeurs invalides pour sens
+			else {
+				resultat = 0;
+			}
+		} 
+		//Outil 2 : Convertisseur de distance
+		else if (tool == 2) { 
+			//Valeurs valides pour val
+			if (val>0) {
+				//Sens 1 : Miles vers Km
+				if (sens == 1) { 
+					resultat = val * tauxMK;
+				} 
+				//Sens 2 : Km vers Miles
+				else if (sens == 2) { 
+					resultat = val / tauxMK;
+				}
+				//Autres valeurs invalides pour sens
+				else {
+					resultat = 0;
+				}
+			}
+			//Autres valeurs invalides pour val
+			else {
+				resultat = 0;
+			}
+		}
+		//Autres valeurs invalides pour tool
+		else {
+			resultat = 0;
+		}
+		System.out.println("Le résultat est --> " + resultat); 
+	}
+
+}
